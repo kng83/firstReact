@@ -34,11 +34,11 @@ class App extends React.Component<{}, IState> {
 
     if (this.state.countDown <= 0) {
     }
-      clearInterval(this.timer);
-      this.setState({
+    clearInterval(this.timer);
+    this.setState({
       confirmMessage: "Too late to confirm!",
       confirmVisible: false
-      });
+    });
   }
 
   private handleCancelConfirmClick = () => {
@@ -53,28 +53,28 @@ class App extends React.Component<{}, IState> {
   public static getDerivedStateFromProps(props: {}, state: IState) {
     console.log("getDerivedStateFromProps", props, state);
     return null;
-   }
+  }
 
-   private renderCount = 0;
+  private renderCount = 0;
 
-   public getSnapshotBeforeUpdate(prevProps: {}, prevState:
-    IState) {
-     this.renderCount += 1;
-     console.log("getSnapshotBeforeUpdate", prevProps, prevState,
-    {
-     renderCount: this.renderCount
-     });
-     return this.renderCount;
-    }
-    public componentDidUpdate(prevProps: {}, prevState: IState,
-    snapshot: number) {
-     console.log("componentDidUpdate", prevProps, prevState,
-     snapshot, {
-     renderCount: this.renderCount
-     });
-    }
-    
-      
+  public getSnapshotBeforeUpdate(prevProps: {}, prevState: IState) {
+    this.renderCount += 1;
+    console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
+      renderCount: this.renderCount
+    });
+    return this.renderCount;
+  }
+
+  public componentDidUpdate(
+    prevProps: {},
+    prevState: IState,
+    snapshot: number
+  ) {
+    console.log("componentDidUpdate", prevProps, prevState, snapshot, {
+      renderCount: this.renderCount
+    });
+  }
+
   public render() {
     return (
       <div className="App">
