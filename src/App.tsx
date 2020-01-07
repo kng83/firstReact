@@ -43,7 +43,7 @@ class App extends React.Component<{}, IState> {
 
   private handleCancelConfirmClick = () => {
     this.setState({ confirmOpen: true, confirmMessage: "ok" });
-    console.log("Cancel clicked");
+      console.log("Cancel clicked ok");
   };
   private handleOkConfirmClick = () => {
     this.setState({ confirmOpen: false, confirmMessage: "nop" });
@@ -51,7 +51,7 @@ class App extends React.Component<{}, IState> {
   };
 
   public static getDerivedStateFromProps(props: {}, state: IState) {
-    console.log("getDerivedStateFromProps", props, state);
+ //   console.log("getDerivedStateFromProps", props, state);
     return null;
   }
 
@@ -59,9 +59,9 @@ class App extends React.Component<{}, IState> {
 
   public getSnapshotBeforeUpdate(prevProps: {}, prevState: IState) {
     this.renderCount += 1;
-    console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
-      renderCount: this.renderCount
-    });
+    // console.log("getSnapshotBeforeUpdate", prevProps, prevState, {
+    //   renderCount: this.renderCount
+    // });
     return this.renderCount;
   }
 
@@ -70,9 +70,9 @@ class App extends React.Component<{}, IState> {
     prevState: IState,
     snapshot: number
   ) {
-    console.log("componentDidUpdate", prevProps, prevState, snapshot, {
-      renderCount: this.renderCount
-    });
+  //  console.log("componentDidUpdate", prevProps, prevState, snapshot, {
+  //    renderCount: this.renderCount
+  //  });
   }
 
   public render() {
@@ -85,7 +85,7 @@ class App extends React.Component<{}, IState> {
         <p>{this.state.confirmMessage}</p>
         <button onClick={this.handleCancelConfirmClick}>Confirm</button>
         <Confirm
-          open={this.state.confirmOpen}
+          open={true}
           onCancelClick={this.handleCancelConfirmClick} //tak mozna zrobic output funckji z komponentu
           onOkClick={this.handleOkConfirmClick}
           title="React and TypeScript"
